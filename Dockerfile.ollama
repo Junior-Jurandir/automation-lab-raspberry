@@ -1,0 +1,17 @@
+FROM ollama/ollama:latest
+
+# Configurações específicas para Raspberry Pi 4
+ENV OLLAMA_MODELS_PATH=/models
+ENV OLLAMA_HOST=0.0.0.0
+ENV OLLAMA_ORIGINS=*
+
+# Cria diretório para modelos
+RUN mkdir -p /models
+
+# Script para download de modelos leves para Raspberry Pi
+COPY scripts/download-models.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/download-models.sh
+
+EXPOSE 11434
+
+CMD ["ollama", "serve"]

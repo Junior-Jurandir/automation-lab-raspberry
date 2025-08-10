@@ -1,0 +1,16 @@
+# Override para configurações específicas de desenvolvimento
+version: '3.8'
+
+services:
+  n8n:
+    environment:
+      - N8N_LOG_LEVEL=debug
+      - EXECUTIONS_PROCESS=main
+    volumes:
+      - ./n8n-workflows:/workflows
+
+  ollama:
+    environment:
+      - OLLAMA_DEBUG=1
+    volumes:
+      - ./ollama-models:/models
