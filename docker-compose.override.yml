@@ -6,6 +6,7 @@ services:
     environment:
       - N8N_LOG_LEVEL=debug
       - EXECUTIONS_PROCESS=main
+      - N8N_SECURE_COOKIE=false
     volumes:
       - ./n8n-workflows:/workflows
 
